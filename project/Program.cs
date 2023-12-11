@@ -1,26 +1,53 @@
-﻿Console.WriteLine("Enter number A: ");
-int a = int.Parse(Console.ReadLine());
-Console.WriteLine("Enter number B: ");
-int b = int.Parse(Console.ReadLine());
-Console.WriteLine("Enter type of operation: ");
-string sum = Console.ReadLine();
+﻿
+Start();
+void Start()
+{
 
-if(sum == "/")
-{
-    Console.WriteLine(a / b);
+   
+    int a = GetNumber("Enter number A: ");
+    int b = GetNumber("Enter number B: ");
+
+    string sum = Sum("Enter type of operation: ");
+
+    int summ = operation(a,b,sum);
+    Console.WriteLine(summ);
 }
-else if(sum == "+")
+    
+int GetNumber(string text)
 {
-    Console.WriteLine(a + b);
+    Console.Write(text);
+    int i = int.Parse(Console.ReadLine());
+    return i;
 }
 
-else if(sum == "-")
+string Sum(string text)
 {
-    Console.WriteLine(a - b);
+    Console.Write(text);
+    string sum = Console.ReadLine();
+    return sum;
 }
-else if(sum == "*")
+
+int operation(int a, int b, string sum)
 {
-    Console.WriteLine(a * b);
+    if(sum == "/")
+    {
+       return a / b;
+    }
+    else if(sum == "+")
+    {
+        return a + b;
+    }
+    else if(sum == "-")
+    {
+        return a - b;
+    }
+    else if(sum == "*")
+    {
+       return a * b;
+    }
+    else
+    {
+        
+       return 0;
+    }
 }
-else
-Console.WriteLine("you entered an incorrect value");
